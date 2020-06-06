@@ -29,6 +29,7 @@ STATICFILES_DIRS = (
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)

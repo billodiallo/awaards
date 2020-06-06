@@ -1,5 +1,4 @@
 """awaards URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -13,9 +12,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'',include('projects.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/accounts/login/'}),
+    url(r'^api-token-auth/', obtain_auth_token)
 ]

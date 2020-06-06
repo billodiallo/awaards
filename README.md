@@ -1,8 +1,6 @@
-# 卩尺ㄖﾌ乇匚ㄒ 卂山卂尺ᗪ丂
 
-![AWARDS](/static/img/md.png)
 
-## Built By [Tom Chege](https://github.com/emdeechege/)
+## Built By [Mamadou Billo Diallo](https://github.com/billodiallo/)
 
 ## Description
 This is a web application that allows different developers to post their projects and peers can review the same by grading the projects in terms of userbility, design and content.
@@ -54,8 +52,8 @@ Admin should:
 ### Cloning
 * In your terminal:
 
-        $ git clone https://github.com/emdeechege/Instrapicha
-        $ cd Awards
+        $ git clone https://github.com/billodiallo/awaards
+        $ cd awaards
 
 ## Running the Application
 * Creating the virtual environment
@@ -87,7 +85,7 @@ Admin should:
 
 ## License
 
-Copyright (c) 2018 emdeechege
+Copyright (c) 2020 Billo
 
 ------------
 
