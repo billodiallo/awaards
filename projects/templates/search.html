@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<div class="container mt-5">
+    <div class="row mt-5"></div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        {% if searched_project %}
+        <h2>{{searched_project | length}} projects found</h2>
+        {% else %}
+        <h2>Found 0 projects {{message | title}}</h2>
+        {% endif %}
+    </div>
+    <div class="row">
+        {% if searched_project %}
+            {% for project in searched_project %}
+
+            <div class="card border-secondary">
+              <div class="card-header">
+                <h2><a href="{{ project.project_link }}" target="_blank">{{project.title}}</a></h2>
+              </div>
+              <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="100px200">
+            </div>
+            <div class="card-body">
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

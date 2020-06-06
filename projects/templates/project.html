@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<br>
+<br>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<div class="container">
+
+  <div class="card-columns">
+
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="100px200">
+    </div>
+    <div class="card-body">
+      <p>Caption: {{project.caption}}</p>
+      <p>Poster: {{project.user}}</p>
+      <p>Reviews: {{review.comment}}</p>
+
+
+    </div>
+
+  </div>
+  {{form.media}}
+
+
+
+  <div class="card mx-auto" style="max-width:50rem; margin-top:50px;">
+  <form  action="{%url 'review'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+  </div>
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  {% bootstrap_javascript %}
+  {% endblock %}
+</div>
+{% endblock %}

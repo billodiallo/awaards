@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="row" style="border-bottom: 1px solid grey;height:60px; margin-top: 15; border-top: 0px solid grey; background:white;">
+  <div class="col-2" style="text-align:left; margin-top: 15px;">
+    <span><a href="">ENGLISH</a></span>
+    </div>
+  <div class="col-8">
+    <p style="text-align:center; margin-top: 15px;">The awards of design, creativity and innovation in Moringa School</p>
+    </div>
+  <div class="col-2" style="text-align:center; margin-top: 15px;"><p style="float:right">
+    <i class="fab fa-instagram" style="margin-right:10px;">
+
+    </i><i class="fab fa-facebook-f" style="margin-right:10px;">
+
+    </i><i class="fab fa-twitter" style="margin-right:10px;"></i>
+  </p>
+    </div>
+</div>
+<div class="row" style="border-bottom: 1px solid grey; background:white;" id="navbar">
+  <div class="col-2" >
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+  <a href="/" class="w3-bar-item w3-button w3-border-bottom" >Home</a>
+  <a href="{% url 'add_profile' %}" class="w3-bar-item w3-button w3-border-bottom">Add Profile</a>
+  <a href="{% url 'upload' %}" class="w3-bar-item w3-button w3-border-bottom">Add Projects</a>
+  <a href="/logout" class="w3-bar-item w3-button w3-border-bottom">Log Out</a>
+</div>
+
+<!-- Page Content -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div>
+  <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+  </div>
+
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</div>
+<div class="col-4" style="text-align:left; margin-top: 15px;">
+  <form class="form-inline mx-auto" role="search" action="{% url 'search_results' %}" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" role="search" placeholder="search project" aria-label="Search" name="title">
+          </div>
+        </form>
+
+</div>
+<div class="col-5">
+<h5 style="text-transform: uppercase; margin-top: 15px;"><strong>卩尺ㄖﾌ乇匚ㄒ 卂山卂尺ᗪ丂</strong> </h5>
+          <p> <a class="nav-link" href="#" title="User">{{user}}</a></p>
+</div>
+<div class="col-1" style="background:green;" >
+  <h5 style="text-transform: uppercase; margin-top: 15px; margin-bottom: 20px;"><a href="{% url 'upload' %}">SUBMIT PROJECT</a></h5>
+</div>
+</div>
+<script>
+  window.onscroll = function() {myFunction()};
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  </script>
+<body>
+
+
+
+</body>
+
+</html>

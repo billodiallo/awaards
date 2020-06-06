@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<br>
+<br>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<div class="container top">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5">
+          {% if profile.profile_photo %}
+          <img src="{{profile.profile_photo.url}}" alt="profile-photo" class="img-fluid-circle" style="border-radius: 50%;height:200px;width: 200px;">
+          {% endif %}
+        </div>
+        <div class="col-md-5 text-left">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <span class="username">{{ profile.user }}</span>
+            </li>
+            {% if profile.user == user %}
+            <!-- <li class="list-inline-item">
+              <a class="btn btn-edit" href="">Edit Profile</a>
+            </li> -->
+            <li class="list-inline-item">
+              <a data-toggle="modal" data-target="#edit" href=""><i class="far fa-edit"></i>Edit Profile</a>
+            </li>
+            {% else %}
+            <li class="list-inline-item">
+              <a href="#" class="btn btn-primary"></a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <span class="font-weight-bold">{{projects|length}}</span> Project
+            </li>
+            <li class="list-inline-item">
+              <span class="font-weight-bold">{{profile.user.follow.all | length}}</span> Ratings
+            </li>
+            <li class="list-inline-item">
+              <span class="font-weight-bold">{{profile.user.c_user.all | length}}</span> Projects rated
+            </li>
+          </ul>
+          <p class="font3">{{profile.bio}}</p>
+          {% if profile.user == user %}
+          <p><a href="{% url 'upload' %}">Add Image</a></p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      {% for project in projects %}
+      <div class="card-columns">
+
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="">
+    </div>
+      {% empty %}
+      <div class="col-md-12">
+        <h2>Profile has no projects</h2>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item text-center"><a href="{% url 'add_profile' %}">Edit Profile</a></li>
+          <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
+          <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
