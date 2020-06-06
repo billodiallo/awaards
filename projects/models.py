@@ -11,7 +11,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=240, null=True)
     phone = models.PositiveIntegerField(default=0)
 
-    def create_user_profile(sender, instance, created, **kwargs):
+    #def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
 
