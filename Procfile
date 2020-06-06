@@ -1,1 +1,1 @@
-web: gunicorn awaaards.wsgi
+web: gunicorn awaards.wsgi
