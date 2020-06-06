@@ -17,7 +17,7 @@ class Profile(models.Model):
 
         post_save.connect(create_user_profile, sender=User)
 
-    def save_profile(self):
+    ###def save_profile(self):
         self.save()
 
     @classmethod
