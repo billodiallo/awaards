@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'',include('projects.urls')),
-    #url(r'^logout/$', views.logout, {"next_page": '/accounts/login/'}),
+    url(r'^logout/$', views.logout, {"next_page": '/accounts/login/'}),
     url(r'^api-token-auth/', obtain_auth_token)
 ]
