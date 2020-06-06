@@ -5,7 +5,7 @@ from django.db.models import Avg
 import numpy as np
 # Create your models here.
 
-class Profile(models.Model):
+########class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     profile_photo = models.ImageField(upload_to='profiles/',null=True)
     bio = models.CharField(max_length=240, null=True)
@@ -29,7 +29,7 @@ class Profile(models.Model):
 
 
 class Project(models.Model):
-    posted_by = models.ForeignKey(User, null=True)
+    oooposted_by = models.ForeignKey(User, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=100, null=True)
     project_image = models.ImageField(upload_to='projects/',null=True)
@@ -84,4 +84,7 @@ class Reviews(models.Model):
         reviews = Reviews.objects.all()
         return reviews
 
-   
+    # @classmethod
+    # def get_average(cls):
+    #     usability =Reviews.objects.all().aggregate(Avg('usability'))
+    #     return usability
