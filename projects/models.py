@@ -84,7 +84,4 @@ class Reviews(models.Model):
         reviews = Reviews.objects.all()
         return reviews
 
-    # @classmethod
-    # def get_average(cls):
-    #     usability =Reviews.objects.all().aggregate(Avg('usability'))
-    #     return usability
+    
