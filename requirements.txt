@@ -8,7 +8,7 @@ django-bootstrap3==12.1.0
 django-bootstrap4==2.0.1
 django-contrib-comments==1.9.2
 django-heroku==0.3.1
-django-registration==2.4.1
+django-registration==3.1.2
 django-tinymce==3.0.2
 djangorestframework==3.11.0
 gunicorn==20.0.4
